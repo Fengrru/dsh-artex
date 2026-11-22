@@ -73,7 +73,7 @@
     "@deepseek-ai/schemastery": "^3.19.0"
   },
   "devDependencies": {
-    "esbuild": "^0.25.10"
+    "esbuild": "^0.28.2"
   },
   "scripts": {
     "build": "node scripts/build.mjs",
