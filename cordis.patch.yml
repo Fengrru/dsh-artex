@@ -1,0 +1,12 @@
+# dsh bundle patch: mount dsh-artex as one Cordis plugin row.
+# The Host half is src/host.js; the browser half is dist/client.js (dsh.client).
+# `id` is the settings/config namespace and the panel id used by src/client.js.
+- insert:
+    - id: artex
+      name: 'dsh-artex'
+      config:
+        endpoint: http://127.0.0.1:8787
+        runtime: docker
+        autoStart: false
+        targetGate: true
+        requireAuthorizationAck: true

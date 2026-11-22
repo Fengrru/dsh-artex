@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output (rebuilt by `npm run build` / npm lifecycle)
+dist/
+*.tgz
+
+# Local runtime state and logs
+*.log
+.env
+.env.*
+!.env.example
+artex-data/
+_smoke*/
+_e2e/
+.auto/
+
+# Test / coverage output
+coverage/
+.nyc_output/
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*~

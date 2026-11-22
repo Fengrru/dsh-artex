@@ -1,0 +1,29 @@
+dsh-artex
+Copyright (C) 2026 Fengrru and contributors
+
+This project is licensed under the GNU Affero General Public License,
+version 3 or (at your option) any later version. See LICENSE.
+
+Third-party notices
+-------------------
+
+ARTEX
+  An autonomous penetration-testing platform, originally by Autumn-27
+  (https://github.com/Autumn-27), with the English translation and
+  continuation maintained at https://github.com/BaaRai/ARTEX.
+  ARTEX is licensed under AGPL-3.0. This plugin talks to a separately
+  installed ARTEX instance over HTTP and does not bundle the ARTEX
+  source tree or binaries. The optional patch in patches/ modifies ARTEX
+  and remains subject to ARTEX's AGPL-3.0 license.
+
+DeepSeek Harness (DSH)
+  Plugin host and client runtime, https://github.com/deepseek-ai/deepseek-harness.
+  dsh-artex is an independent community plugin and is not affiliated with
+  or endorsed by DeepSeek.
+
+@deepseek-ai/schemastery
+  Configuration schema library used by the Host half, MIT license.
+
+The ARTEX name and any third-party trademarks belong to their respective
+owners. Nothing in this repository grants permission to test systems you
+do not own or have not been explicitly authorized to test.

@@ -1,0 +1,54 @@
+name: Feature request
+description: Suggest a capability or integration improvement
+title: "[feat] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please describe the operator workflow you want to support. Features that
+        weaken authorization, approval or scope controls will not be accepted.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / workflow
+      description: What are you trying to do, and what blocks you today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Console workaround, another tool, upstream ARTEX endpoint, etc.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Tasks / findings / evidence
+        - UI / Console
+        - Agents / skills / MCP / tools
+        - LLM / settings
+        - Runtime / Docker / binary
+        - Docs / packaging
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety
+      options:
+        - label: This request keeps authorization, scope and approval controls intact.
+          required: true

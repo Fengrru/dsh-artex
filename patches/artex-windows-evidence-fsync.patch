@@ -1,0 +1,44 @@
+diff --git a/evidence/store.go b/evidence/store.go
+index 98c38ef..e534ed0 100644
+--- a/evidence/store.go
++++ b/evidence/store.go
+@@ -13,6 +13,7 @@ import (
+ 	"log"
+ 	"os"
+ 	"path/filepath"
++	"runtime"
+ 	"strings"
+ 	"time"
+ 
+@@ -107,12 +108,28 @@ func (s *Store) writeBody(r io.Reader, expectedLength int64, expectedHash string
+ 	if err = os.Rename(f.Name(), path); err != nil {
+ 		return "", err
+ 	}
+-	d, err := os.Open(filepath.Dir(path))
+-	if err != nil {
++	if err = syncDir(filepath.Dir(path)); err != nil {
+ 		return "", err
+ 	}
++	return hash, nil
++}
++
++// syncDir flushes a directory entry after a rename. Windows rejects fsync on a
++// read-only directory handle with ERROR_ACCESS_DENIED; the body file itself was
++// already fsynced above, so treat that platform limitation as non-fatal.
++func syncDir(dir string) error {
++	d, err := os.Open(dir)
++	if err != nil {
++		return err
++	}
+ 	defer d.Close()
+-	return hash, d.Sync()
++	if err := d.Sync(); err != nil {
++		if runtime.GOOS == "windows" {
++			return nil
++		}
++		return err
++	}
++	return nil
+ }
+ 
+ // StageFindingsExport freezes bindings/report versions and makes private body
